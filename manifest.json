@@ -1,5 +1,11 @@
 {
     "manifest_version": 3,
     "name": "MAIN",
-    "version": "0.0.0.0"
+    "version": "0.0.0.0",
+    "background": {
+        "service_worker": "/manifest/background/service_worker/index.js"
+    },
+    "chrome_url_overrides": {
+        "newtab": "/manifest/chrome_url_overrides/newtab/index.html"
+    }
 }
