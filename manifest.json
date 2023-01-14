@@ -7,5 +7,15 @@
     },
     "chrome_url_overrides": {
         "newtab": "/manifest/chrome_url_overrides/newtab/index.html"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "/manifest/content_scripts/js/index.js"
+            ]
+        }
+    ]
 }
