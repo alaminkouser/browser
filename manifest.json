@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "MAIN",
+    "name": "BROWSER",
     "version": "0.0.0.0",
     "background": {
         "service_worker": "/manifest/background/service_worker/index.js"
@@ -17,5 +17,11 @@
                 "/manifest/content_scripts/js/index.js"
             ]
         }
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "permissions": [
+        "webRequest"
     ]
 }
