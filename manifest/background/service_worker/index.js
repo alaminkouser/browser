@@ -17,3 +17,5 @@
         { urls: ["<all_urls>"] }
     );
 });
+
+chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: "https://example.com/" }));

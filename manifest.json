@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "name": "BROWSER",
     "version": "0.0.0.0",
+    "action": {},
     "background": {
         "service_worker": "/manifest/background/service_worker/index.js"
     },
