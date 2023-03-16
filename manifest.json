@@ -23,6 +23,7 @@
         "<all_urls>"
     ],
     "permissions": [
+        "contextMenus",
         "tabs",
         "webRequest"
     ]

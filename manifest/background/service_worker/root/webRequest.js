@@ -20,12 +20,12 @@
                 chrome.action.setBadgeText(
                     {
                         text: details["requestId"],
-                        tabId: currentTab[0]["id"]
+                        // tabId: currentTab[0]["id"]
                     },
                     () => { }
                 );
             });
-            console.log(details);
+            // console.log(details);
         },
         { urls: ["<all_urls>"] }
     );
