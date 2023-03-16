@@ -2,6 +2,11 @@ importScripts("/lib/telegram/index.js");
 
 chrome.contextMenus.removeAll(function () {
     chrome.contextMenus.create({
+        "id": "contextMenus_IMAGE",
+        "contexts": ["image"],
+        "title": "SEND IMAGE"
+    });
+    chrome.contextMenus.create({
         "id": "contextMenus_LINK",
         "contexts": ["link"],
         "title": "SEND LINK"
@@ -22,6 +27,10 @@ chrome.contextMenus.onClicked.addListener(
     function (event) {
         console.log(event);
         switch (event["menuItemId"]) {
+            case "contextMenus_IMAGE":
+                console.log("IMAGE");
+                telegram.sendPhoto(event["srcUrl"], event["pageUrl"]);
+                break;
             case "contextMenus_LINK":
                 telegram.sendMessage(event["linkUrl"]);
                 break;
@@ -31,6 +40,8 @@ chrome.contextMenus.onClicked.addListener(
             case "contextMenus_SELECTION":
                 telegram.sendMessage(event["selectionText"]);
                 break;
+            default:
+                console.log(false);
         }
     }
 )
