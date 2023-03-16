@@ -28,7 +28,6 @@ chrome.contextMenus.onClicked.addListener(
         console.log(event);
         switch (event["menuItemId"]) {
             case "contextMenus_IMAGE":
-                console.log("IMAGE");
                 telegram.sendPhoto(event["srcUrl"], event["pageUrl"]);
                 break;
             case "contextMenus_LINK":
