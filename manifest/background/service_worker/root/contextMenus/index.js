@@ -1,5 +1,3 @@
-importScripts("/lib/telegram/index.js");
-
 chrome.contextMenus.removeAll(function () {
     chrome.contextMenus.create({
         "id": "contextMenus_IMAGE",
