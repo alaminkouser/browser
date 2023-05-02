@@ -9,7 +9,7 @@ chrome.downloads.onCreated.addListener((downloadItem) => {
     });
 });
 
-chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
-    suggest({ filename: item.filename });
-    chrome.downloads.cancel(item.id);
+chrome.downloads.onDeterminingFilename.addListener(function (downloadItem, suggest) {
+    suggest({ filename: downloadItem.filename });
+    chrome.downloads.cancel(downloadItem.id);
 });
