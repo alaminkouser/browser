@@ -6,11 +6,7 @@ chrome.downloads.onCreated.addListener((downloadItem) => {
             "method": "aria2.addUri",
             "params": ["token:" + PRIVATE.aria2c.secretToken, [downloadItem["finalUrl"]]]
         })
-    }).then((value) => {
-        return value.text();
-    }).then((value) => {
-        console.log(value);
-    })
+    });
 });
 
 chrome.downloads.onDeterminingFilename.addListener(function (item, suggest) {
