@@ -30,6 +30,10 @@
         "256": "/manifest/icons/256.png",
         "512": "/manifest/icons/512.png"
     },
+    "options_ui": {
+        "page": "/manifest/options_ui/page/index.html",
+        "open_in_tab": true
+    },
     "permissions": [
         "contextMenus",
         "downloads",
