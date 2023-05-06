@@ -16,6 +16,9 @@
             ],
             "js": [
                 "/manifest/content_scripts/js/index.js"
+            ],
+            "css": [
+                "/manifest/content_scripts/css/index.css"
             ]
         }
     ],
