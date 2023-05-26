@@ -1,3 +1,3 @@
 chrome.action.onClicked.addListener(() => {
-    chrome.tabs.create({ url: "/lib/ariaNg/index.html" });
+    chrome.tabs.create({ url: "https://ziahamza.github.io/webui-aria2/" });
 });
