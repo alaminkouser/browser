@@ -1,25 +1,29 @@
 chrome.downloads.onCreated.addListener((downloadItem) => {
-    fetch("http://" + PRIVATE.aria2c.host + ":" + PRIVATE.aria2c.port + "/jsonrpc", {
-        "method": "POST",
-        "body": JSON.stringify({
-            "id": downloadItem["finalUrl"],
-            "method": "aria2.addUri",
-            "params": ["token:" + PRIVATE.aria2c.secretToken, [downloadItem["finalUrl"]]]
-        })
-    }).then((_) => {
+    if (downloadItem["finalUrl"].startsWith("http") === true) {
         fetch("http://" + PRIVATE.aria2c.host + ":" + PRIVATE.aria2c.port + "/jsonrpc", {
             "method": "POST",
             "body": JSON.stringify({
-                "method": "aria2.saveSession",
-                "params": ["token:" + PRIVATE.aria2c.secretToken]
+                "id": downloadItem["finalUrl"],
+                "method": "aria2.addUri",
+                "params": ["token:" + PRIVATE.aria2c.secretToken, [downloadItem["finalUrl"]]]
             })
         }).then((_) => {
-            chrome.downloads.erase({});
+            fetch("http://" + PRIVATE.aria2c.host + ":" + PRIVATE.aria2c.port + "/jsonrpc", {
+                "method": "POST",
+                "body": JSON.stringify({
+                    "method": "aria2.saveSession",
+                    "params": ["token:" + PRIVATE.aria2c.secretToken]
+                })
+            }).then((_) => {
+                chrome.downloads.erase({});
+            });
         });
-    });
+    }
 });
 
 chrome.downloads.onDeterminingFilename.addListener(function (downloadItem, suggest) {
-    suggest({ filename: downloadItem.filename });
-    chrome.downloads.cancel(downloadItem.id);
+    if (downloadItem["finalUrl"].startsWith("http") === true) {
+        suggest({ filename: downloadItem.filename });
+        chrome.downloads.cancel(downloadItem.id);
+    }
 });
