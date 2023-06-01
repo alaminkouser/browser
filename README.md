@@ -9,6 +9,8 @@ const PRIVATE = {
         "port": "",
         "secretToken": ""
     },
+    "insert": "",
+    "chromeHistoryGoogleSheetID": "",
     "telegram": {
         "bot": {
             "id": "",
