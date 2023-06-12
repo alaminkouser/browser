@@ -39,7 +39,6 @@
     },
     "permissions": [
         "contextMenus",
-        "downloads",
         "history",
         "tabs",
         "webRequest"
