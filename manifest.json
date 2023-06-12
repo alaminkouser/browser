@@ -39,6 +39,7 @@
     },
     "permissions": [
         "contextMenus",
+        "declarativeNetRequest",
         "history",
         "tabs",
         "webRequest"
