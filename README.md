@@ -4,11 +4,6 @@
 
 ```js
 const PRIVATE = {
-    "aria2c": {
-        "host": "",
-        "port": "",
-        "secretToken": ""
-    },
     "insert": "",
     "chromeHistoryGoogleSheetID": "",
     "telegram": {
