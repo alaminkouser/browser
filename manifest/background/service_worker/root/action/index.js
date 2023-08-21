@@ -3,6 +3,6 @@ chrome.action.onClicked.addListener((_) => {
         "url": "/manifest/background/service_worker/root/windows/index.html",
         "type": "panel",
         "height": 200,
-        "width": 400
+        "width": 800
     });
 });
