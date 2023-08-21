@@ -8,12 +8,11 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("user is signed in");
     } else {
-        console.log("user is signed out");
+        signIn();
     }
 });
 
 function signIn() {
-    // anonymous sign in
     signInAnonymously(auth)
         .then(() => {
             console.log("signed in");
