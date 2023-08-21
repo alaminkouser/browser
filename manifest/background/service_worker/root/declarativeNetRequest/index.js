@@ -9,8 +9,8 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 requestHeaders: [
                     {
                         operation: chrome.declarativeNetRequest.HeaderOperation.SET,
-                        header: "AAK",
-                        value: "https://aak.deno.dev/"
+                        header: "A-A-K",
+                        value: "https://alaminkouser.github.io/"
                     },
                 ]
             },
