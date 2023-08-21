@@ -1,5 +1,5 @@
 import { initializeApp } from "/lib/firebase/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "/lib/firebase/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInAnonymously } from "/lib/firebase/firebase-auth.js";
 
 const app = initializeApp(PRIVATE.firebaseConfig);
 
@@ -11,3 +11,14 @@ onAuthStateChanged(auth, (user) => {
         console.log("user is signed out");
     }
 });
+
+function signIn() {
+    // anonymous sign in
+    signInAnonymously(auth)
+        .then(() => {
+            console.log("signed in");
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
