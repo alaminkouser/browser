@@ -4,8 +4,6 @@
 
 ```js
 const PRIVATE = {
-    "insert": "",
-    "chromeHistoryGoogleSheetID": "",
     "telegram": {
         "bot": {
             "id": "",
