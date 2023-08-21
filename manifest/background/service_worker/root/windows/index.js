@@ -1,13 +1,13 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js"
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-auth.js"
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js"
+import { initializeApp } from "/lib/firebase/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/lib/firebase/firebase-auth.js";
 
 const app = initializeApp(PRIVATE.firebaseConfig);
 
-app.auth().onAuthStateChanged(function (user) {
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
     if (user) {
-        console.log("user is signed in")
+        console.log("user is signed in");
     } else {
-        console.log("user is not signed in")
+        console.log("user is signed out");
     }
 });
