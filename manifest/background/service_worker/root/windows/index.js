@@ -1,12 +1,15 @@
 import { initializeApp } from "/lib/firebase/firebase-app.js";
 import { getAuth, onAuthStateChanged, signInAnonymously } from "/lib/firebase/firebase-auth.js";
+import { getStorage, ref, listAll, getDownloadURL } from "/lib/firebase/firebase-storage.js";
 
 const app = initializeApp(PRIVATE.firebaseConfig);
 
 const auth = getAuth();
+let USER = null;
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        console.log("user is signed in");
+        USER = user;
+        listFiles();
     } else {
         signIn();
     }
@@ -14,10 +17,29 @@ onAuthStateChanged(auth, (user) => {
 
 function signIn() {
     signInAnonymously(auth)
-        .then(() => {
-            console.log("signed in");
+        .catch((error) => {
+            alert(error.message);
+        });
+}
+
+function listFiles() {
+    const storageRef = getStorage(app, PRIVATE.firebaseStorageBucket);
+    const listRef = ref(storageRef, USER["uid"]);
+    listAll(listRef)
+        .then((res) => {
+            res.items.forEach((itemRef) => {
+                console.log(itemRef);
+                const file = document.createElement("a");
+                getDownloadURL(itemRef).then((downloadURL) => {
+                    file.href = downloadURL;
+                }).catch((error) => {
+                    alert(error.message);
+                });
+                file.innerText = itemRef.name;
+                window.document.body.querySelector("div.files").appendChild(file);
+            });
         })
         .catch((error) => {
-            console.log(error);
+            alert(error.message);
         });
 }
