@@ -15,9 +15,12 @@
                 "<all_urls>"
             ],
             "js": [
+                "/lib/showdown/index.js",
+                "/lib/toast/index.js",
                 "/manifest/content_scripts/js/index.js"
             ],
             "css": [
+                "/lib/toast/index.css",
                 "/manifest/content_scripts/css/index.css"
             ]
         }

@@ -19,6 +19,11 @@ chrome.contextMenus.removeAll(function () {
         "contexts": ["selection"],
         "title": "SEND SELECTION"
     });
+    chrome.contextMenus.create({
+        "id": "contextMenus_DEFINE",
+        "contexts": ["selection"],
+        "title": "DEFINE SELECTION"
+    });
 });
 
 chrome.contextMenus.onClicked.addListener(
@@ -36,6 +41,16 @@ chrome.contextMenus.onClicked.addListener(
                 break;
             case "contextMenus_SELECTION":
                 telegram.sendMessage(event["selectionText"]);
+                break;
+            case "contextMenus_DEFINE":
+                chrome.tabs.query(
+                    { currentWindow: true, active: true },
+                    function (tabArray) {
+                        chatGPT(
+                            "Define" + "\"" + event["selectionText"] + "\". " + "Give example and provide historical definition. If the term belongs to any technical fields then provide technical definitions also.",
+                            tabArray[0]["id"]);
+                    }
+                );
                 break;
             default:
                 console.log(false);
