@@ -43,12 +43,19 @@ chrome.contextMenus.onClicked.addListener(
                 telegram.sendMessage(event["selectionText"]);
                 break;
             case "contextMenus_DEFINE":
-                chrome.tabs.query(
-                    { currentWindow: true, active: true },
-                    function (tabArray) {
+                chrome.windows.create(
+                    {
+                        "url": "/lib/chatGPT/window/index.html",
+                        "type": "panel",
+                        "height": 200,
+                        "width": 800
+                    },
+                    function (value) {
+                        console.log(value);
                         chatGPT(
                             "Define" + "\"" + event["selectionText"] + "\". " + "Give example and provide historical definition. If the term belongs to any technical fields then provide technical definitions also.",
-                            tabArray[0]["id"]);
+                            value.tabs[0].id
+                        );
                     }
                 );
                 break;
