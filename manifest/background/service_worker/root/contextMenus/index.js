@@ -47,7 +47,7 @@ chrome.contextMenus.onClicked.addListener(
                     {
                         "url": "/lib/chatGPT/window/index.html",
                         "type": "panel",
-                        "height": 200,
+                        "height": 500,
                         "width": 800
                     },
                     function (value) {
