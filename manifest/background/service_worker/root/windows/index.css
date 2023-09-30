@@ -1,0 +1,13 @@
+body {
+    color: white;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.files>a {
+    display: block;
+}
