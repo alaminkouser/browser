@@ -1,7 +1,7 @@
 importScripts("/private/index.js");
 
 importScripts("/lib/telegram/index.js");
-importScripts("/lib/chatGPT/index.js");
+importScripts("/lib/palm/index.js");
 
 importScripts("./root/action/index.js");
 importScripts("./root/browsingData/index.js");
